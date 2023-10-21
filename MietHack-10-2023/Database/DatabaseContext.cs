@@ -12,6 +12,12 @@ namespace MietHack_10_2023.Database
     {
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Student> Students { get; set; }
+
+        public DbSet<Event> Events { get; set; }
+
+        public DbSet<StudentUnion> StudentUnions { get; set; }
+
         /// <summary>
         /// .ctor
         /// </summary>
