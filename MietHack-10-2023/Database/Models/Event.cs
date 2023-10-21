@@ -14,6 +14,6 @@ namespace MietHack_10_2023.Database.Models
 
         public Student Organizer { get; set; }
 
-        public string LinqToGruop { get; set; }
+        public string LinqToGroup { get; set; }
     }
 }

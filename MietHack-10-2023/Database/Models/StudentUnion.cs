@@ -10,7 +10,7 @@ namespace MietHack_10_2023.Database.Models
 
         public string Name { get; set; }
 
-        byte[] Logo { get; set; }
+        public byte[] Logo { get; set; }
 
         public string Goals { get; set; }
 
