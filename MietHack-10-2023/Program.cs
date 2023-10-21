@@ -1,27 +1,51 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using MietHack_10_2023.Database;
+using Serilog;
+using Startup;
+using Startup.AuthSettings;
+using Startup.DatabaseSettings;
+using Startup.LogSettings;
+using Startup.Middlewares.HttpResponseMiddleware;
+using Startup.SwaggerSettings;
 
-// Add services to the container.
-
-builder.Services.AddControllersWithViews();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+namespace MietHack_10_2023
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Paths.Init("MietHack_10_2023");
+            var builder = WebApplication.CreateBuilder(args);
+
+            builder.AddSerilog();
+
+            builder.Services.AddControllers();
+            builder.Services.AddEndpointsApiExplorer();
+
+            builder.Services.AddMjAuthentification(builder.Configuration);
+            builder.Services.AddMjAuthorization();
+
+            builder.Services.AddDatabaseService<DatabaseContext>(builder.Configuration);
+            builder.Services.AddSwaggerService("v0");
+
+            //builder.Services.AddControllerServices();
+
+            var app = builder.Build();
+
+            var log = Log.ForContext<Program>();
+            app.UseHttpResponseMiddleware(log);
+
+            app.UseDatabase<DatabaseContext>();
+
+            app.UseSwaggerMiddleware();
+
+            app.UseHttpsRedirection();
+            app.UseAuthentication();
+            app.UseAuthorization();
+            app.MapControllers();
+
+            app.Run();
+        }
+    }
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
-
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
-
-app.MapFallbackToFile("index.html");
-
-app.Run();

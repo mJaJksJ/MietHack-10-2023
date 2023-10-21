@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MietHack-10-2023", "MietHack-10-2023\MietHack-10-2023.csproj", "{2C2ADC65-64B0-4F2C-9041-46AEB7CFFDA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MietHack_10_2023", "MietHack-10-2023\MietHack_10_2023.csproj", "{2C2ADC65-64B0-4F2C-9041-46AEB7CFFDA2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Startup", "Startup\Startup.csproj", "{2830916E-7B7F-4CBC-8297-DF92E667DAB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2C2ADC65-64B0-4F2C-9041-46AEB7CFFDA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C2ADC65-64B0-4F2C-9041-46AEB7CFFDA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C2ADC65-64B0-4F2C-9041-46AEB7CFFDA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2830916E-7B7F-4CBC-8297-DF92E667DAB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2830916E-7B7F-4CBC-8297-DF92E667DAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2830916E-7B7F-4CBC-8297-DF92E667DAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2830916E-7B7F-4CBC-8297-DF92E667DAB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
