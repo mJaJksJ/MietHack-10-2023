@@ -10,6 +10,7 @@ import { Toast } from "primereact/toast";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 import { Dialog } from "primereact/dialog";
 import { ChoiseStudent } from "../choise-student/ChoiseStudent";
+import { EditMember } from "./EditMember";
 
 const members = [
   {
@@ -73,6 +74,10 @@ export const Members = () => {
             id="row.id"
             className="button pi pi-fw pi-pencil"
             tooltip="Редактировать"
+            onClick={() => {
+              setEditRow(row);
+              setVisibleEdit(true);
+            }}
           ></Button>
           <Button
             id="row.id"
@@ -86,6 +91,8 @@ export const Members = () => {
   };
 
   const [visibleAdd, setVisibleAdd] = useState(false);
+  const [visibleEdit, setVisibleEdit] = useState(false);
+  const [editRow, setEditRow] = useState(null);
   return (
     <Layout>
       <Dialog
@@ -94,12 +101,27 @@ export const Members = () => {
         style={{ width: "50vw" }}
         onHide={() => setVisibleAdd(false)}
       >
-        {ChoiseStudent(() =>{ setVisibleAdd(false)})}
+        {ChoiseStudent(() => {
+          setVisibleAdd(false);
+        })}
       </Dialog>
-
+      <Dialog
+        header="Редактировать участника"
+        visible={!!editRow && visibleEdit}
+        style={{ width: "50vw" }}
+        onHide={() => {
+          setVisibleEdit(false);
+          setEditRow(null);
+        }}
+      >
+        {EditMember(editRow, () => {
+          setVisibleEdit(false);
+          setEditRow(null);
+        })}
+      </Dialog>
       <Card title="Состав СО">
         <Button
-          style={{ borderRadius: "10px", 'marginBottom': '10px' }}
+          style={{ borderRadius: "10px", marginBottom: "10px" }}
           onClick={() => setVisibleAdd(true)}
         >
           Добавить участника
