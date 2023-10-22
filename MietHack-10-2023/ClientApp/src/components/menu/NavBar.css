@@ -1,0 +1,7 @@
+.navbar {
+    justify-content: flex-start;
+}
+
+a:active, a:hover, a {
+  text-decoration: none;
+}

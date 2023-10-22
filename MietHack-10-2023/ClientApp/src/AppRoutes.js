@@ -1,20 +1,40 @@
-import { Counter } from "./components/Counter";
-import { FetchData } from "./components/FetchData";
-import { Home } from "./components/Home";
+import { Documentation } from "./components/pages/documentation/Documentation";
+import { Home } from "./components/pages/home/Home";
+import { Members } from "./components/pages/members/Members";
+import { createBrowserRouter } from "react-router-dom";
+import { Projects } from "./components/pages/projects/Projects";
+import { SendDocumentation } from "./components/pages/send-documentation/SendDocumentation";
+import { Contracts } from "./components/pages/contacts/Contracts";
 
-const AppRoutes = [
+const AppRoutes = createBrowserRouter([
   {
-    index: true,
-    element: <Home />
+    path: "/",
+    element: <Home />,
   },
   {
-    path: '/counter',
-    element: <Counter />
+    path: "/home",
+    element: <Home />,
   },
   {
-    path: '/fetch-data',
-    element: <FetchData />
-  }
-];
+    path: "/members",
+    element: <Members />,
+  },
+  {
+    path: "/documentation",
+    element: <Documentation />,
+  },
+  {
+    path: "/projects",
+    element: <Projects />,
+  },
+  {
+    path: "/send-documents",
+    element: <SendDocumentation />,
+  },
+  {
+    path: "/contacts",
+    element: <Contracts />,
+  },
+]);
 
 export default AppRoutes;
