@@ -14,7 +14,8 @@ namespace MietHack_10_2023.Database.Models
         public string PasswordHash { get; set; }
 
         public Student Student { get; set; }
-        
+        public int? StudentId { get; set; }
+
         public Status Status { get; set; }
 
         public void Configure(EntityTypeBuilder<User> builder)

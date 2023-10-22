@@ -63,7 +63,7 @@
     "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/",
-    "update-models": "nswag swagger2tsclient /runtime:NetCore70 /Input:https://localhost:7122/swagger/v0/swagger.json /Output:src/utils/api.ts /InjectionTokenType:InjectionToken /Template:Axios /OperationGenerationMode:SingleClientFromOperationId /ClassName:ApiService"
+    "update-models": "nswag swagger2tsclient /runtime:NetCore70 /Input:https://localhost:7141/swagger/v0/swagger.json /Output:src/utils/api.ts /InjectionTokenType:InjectionToken /Template:Axios /OperationGenerationMode:SingleClientFromOperationId /ClassName:ApiService"
   },
   "eslintConfig": {
     "extends": [
