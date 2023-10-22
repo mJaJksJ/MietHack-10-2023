@@ -18,6 +18,9 @@ const members = [
     name: "Ланселот Банович де Бенуа",
     group: "ПИН-44",
     comment: "Крутой",
+    birthday: "02.03.921",
+    telephone: "+7-(999)-999-99-99",
+    mail: "8188888@miet.ru",
     addingDate: "01.05.931",
     lastUpdateDate: "01.05.931",
   },
@@ -26,6 +29,9 @@ const members = [
     name: "Галахад Ланселотович Озерный",
     group: "В-11",
     comment: "Пронес чашу с вином в стс-ку",
+    birthday: "02.03.921",
+    telephone: "+7-(999)-999-99-99",
+    mail: "8188888@miet.ru",
     addingDate: "07.04.945",
     lastUpdateDate: "01.05.931",
   },
@@ -34,6 +40,9 @@ const members = [
     name: "Артур Утерович Пендрагон",
     group: "К-10",
     comment: "На вступительных достал меч из камня",
+    birthday: "02.03.921",
+    telephone: "+7-(999)-999-99-99",
+    mail: "8188888@miet.ru",
     addingDate: "12.09.928",
     lastUpdateDate: "01.05.931",
   },
@@ -130,9 +139,11 @@ export const Members = () => {
           <Column header="Действие" body={actions}></Column>
           <Column field="name" header="Имя"></Column>
           <Column field="group" header="Группа"></Column>
+          <Column field="birthday" header="Дата рождения"></Column>
+          <Column field="telephone" header="Телефон"></Column>
+          <Column field="mail" header="Почта"></Column>
           <Column field="comment" header="Комментарий"></Column>
           <Column field="addingDate" header="Дата добавления"></Column>
-          <Column field="lastUpdateDate" header="Дата обновления"></Column>
         </DataTable>
       </Card>
     </Layout>
