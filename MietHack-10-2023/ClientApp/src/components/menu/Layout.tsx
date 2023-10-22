@@ -4,6 +4,7 @@ import { NavBar } from "./NavBar";
 import { Dialog } from "primereact/dialog";
 import { Auth } from "../pages/auth/Auth";
 import { LOCAL_STORAGE_TOKEN } from "../../utils/localStorage.consts";
+import './HeaderBar.css'
 
 export const Layout = (props: any) => {
   

@@ -52,8 +52,6 @@ namespace MietHack_10_2023.Api.Controllers.Auth
                 _databaseContext.Users.Add(user);
                 _databaseContext.SaveChanges();
             }
-
-
         }
 
         [HttpPost("~/api/authorize")]
