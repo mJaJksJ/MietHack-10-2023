@@ -23,7 +23,7 @@ export const Layout = (props: any) => {
 
       <HeaderBar />
       <div style={{ display: "flex" }}>
-        <div style={{ width: "300px", height: "100vh" }}>
+        <div style={{ minWidth: "300px", height: "100vh" }}>
           <NavBar />
         </div>
         {
