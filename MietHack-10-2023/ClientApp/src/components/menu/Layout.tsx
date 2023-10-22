@@ -9,19 +9,19 @@ import './HeaderBar.css'
 export const Layout = (props: any) => {
   
   const [visibleAuth, setVisibleAuth] = useState(!localStorage.getItem(LOCAL_STORAGE_TOKEN));
-  
+
   return (
     <div>
       <Dialog
         header="Авторизация"
         visible={visibleAuth}
-        style={{ width: "50vw" }}
-        onHide={() => setVisibleAuth(false)}
+        style={{ width: "300px" }}
+        onHide={() => {}}
       >
         {Auth(() =>{ setVisibleAuth(false)})}
       </Dialog>
 
-      <HeaderBar />
+      {HeaderBar(() => setVisibleAuth(true))}
       <div style={{ display: "flex" }}>
         <div style={{ minWidth: "300px", height: "100vh" }}>
           <NavBar />

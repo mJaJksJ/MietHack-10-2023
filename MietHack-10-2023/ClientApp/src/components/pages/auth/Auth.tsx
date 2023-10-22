@@ -25,14 +25,14 @@ export const Auth = (onAuth: () => void) => {
 
   return (
     <>
-      <div style={{ paddingBottom: "10px" }}>
+      <div style={{ paddingBottom: "10px", width: '250px' }}>
         <InputText
           placeholder="логин"
           onChange={(e) => setLogin(e.target.value)}
           style={{ width: "100%" }}
         />
       </div>
-      <div style={{ paddingBottom: "10px" }}>
+      <div style={{ paddingBottom: "10px", width: '250px' }}>
         <Password
           placeholder="пароль"
           onChange={(e) => setPassword(e.target.value)}

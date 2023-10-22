@@ -9,6 +9,7 @@
 // ReSharper disable InconsistentNaming
 
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios';
+import { addInterceptor } from './interceptor';
 
 export class ApiService {
     private instance: AxiosInstance;
@@ -18,7 +19,7 @@ export class ApiService {
     constructor(baseUrl?: string, instance?: AxiosInstance) {
 
         this.instance = instance ? instance : axios.create();
-
+        addInterceptor(this.instance);
         this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
 
     }
