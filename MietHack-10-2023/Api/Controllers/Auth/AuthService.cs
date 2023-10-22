@@ -30,7 +30,7 @@ namespace MietHack_10_2023.Api.Controllers.Auth
         public async Task<(ClaimsIdentity, User)> AuthorizeAsync(AuthRequestModel request)
         {
             var user = await _databaseContext.Users.SingleOrDefaultAsync(x => x.Login == request.Login)
-                ?? throw new AuthException("Пользователль не найден");
+                ?? throw new AuthException("Пользователь не найден");
 
             if (user.PasswordHash != PasswordHash(request.Password))
             {
@@ -76,7 +76,7 @@ namespace MietHack_10_2023.Api.Controllers.Auth
 
         private static string PasswordHash(string password)
         {
-            return new string(password.Select(x => (char)(x ^ 1)).ToArray());
+            return password;
         }
     }
 }

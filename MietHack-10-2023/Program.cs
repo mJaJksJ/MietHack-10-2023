@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MietHack_10_2023.Database;
+using MjDefaultWithReact.Api;
 using Serilog;
 using Startup;
 using Startup.AuthSettings;
@@ -8,6 +10,7 @@ using Startup.DatabaseSettings;
 using Startup.LogSettings;
 using Startup.Middlewares.HttpResponseMiddleware;
 using Startup.SwaggerSettings;
+using System.Linq;
 
 namespace MietHack_10_2023
 {
@@ -27,6 +30,7 @@ namespace MietHack_10_2023
             builder.Services.AddMjAuthorization();
 
             builder.Services.AddDatabaseService<DatabaseContext>(builder.Configuration);
+            builder.Services.AddControllerServices();
             builder.Services.AddSwaggerService("v0");
 
             //builder.Services.AddControllerServices();
@@ -41,10 +45,13 @@ namespace MietHack_10_2023
             app.UseSwaggerMiddleware();
 
             app.UseHttpsRedirection();
+
+            app.UseRouting();
+
             app.UseAuthentication();
             app.UseAuthorization();
-            app.MapControllers();
-
+            app.UseEndpoints(x => { x.MapControllers(); });
+            
             app.Run();
         }
     }

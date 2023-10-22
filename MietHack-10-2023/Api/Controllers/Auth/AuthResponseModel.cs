@@ -6,6 +6,6 @@ namespace MietHack_10_2023.Api.Controllers.Auth
     {
         public string Name { get; set; }
         public string Token { get; set; }
-        public Status Role { get; set; }
+        public string Role { get; set; }
     }
 }

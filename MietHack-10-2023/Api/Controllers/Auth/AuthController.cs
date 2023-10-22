@@ -24,6 +24,36 @@ namespace MietHack_10_2023.Api.Controllers.Auth
             _authService = authService;
             _logger = logger;
             _databaseContext = databaseContext;
+
+            var student = _databaseContext.Students.FirstOrDefault(x => x.FullName == "Смагина Надежда");
+            if (student == null)
+            {
+                student = new Database.Models.Student
+                {
+                    FullName = "Смагина Надежда",
+                    Group = "Л-22М",
+                    LinkToProfile = "www.miet.ru"
+                };
+                _databaseContext.Students.Add(student);
+                _databaseContext.SaveChanges();
+            }
+
+            var user = _databaseContext.Users.FirstOrDefault(x => x.StudentId == student.Id);
+            if (user == null)
+            {
+                user = new Database.Models.User
+                {
+                    Login = "8188888",
+                    PasswordHash = "qwerty",
+                    Status = Database.BaseTypes.Status.Manager,
+                    Student = student
+                };
+
+                _databaseContext.Users.Add(user);
+                _databaseContext.SaveChanges();
+            }
+
+
         }
 
         [HttpPost("~/api/authorize")]
@@ -50,7 +80,7 @@ namespace MietHack_10_2023.Api.Controllers.Auth
             {
                 Name = dbUser.Name,
                 Token = token,
-                Role = dbUser.Role
+                Role = dbUser.Role.GetMemberValue()
             };
         }
 

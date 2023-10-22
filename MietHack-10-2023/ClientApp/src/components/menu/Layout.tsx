@@ -3,10 +3,11 @@ import HeaderBar from "./HeaderBar";
 import { NavBar } from "./NavBar";
 import { Dialog } from "primereact/dialog";
 import { Auth } from "../pages/auth/Auth";
+import { LOCAL_STORAGE_TOKEN } from "../../utils/localStorage.consts";
 
 export const Layout = (props: any) => {
   
-  const [visibleAuth, setVisibleAuth] = useState(true);
+  const [visibleAuth, setVisibleAuth] = useState(!localStorage.getItem(LOCAL_STORAGE_TOKEN));
   
   return (
     <div>

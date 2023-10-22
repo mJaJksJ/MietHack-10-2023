@@ -5,6 +5,7 @@ import { Password } from "primereact/password";
 import { ApiService } from "../../../utils/api";
 import {
   LOCAL_STORAGE_NAME,
+  LOCAL_STORAGE_ROLE,
   LOCAL_STORAGE_TOKEN,
 } from "../../../utils/localStorage.consts";
 
@@ -16,7 +17,8 @@ export const Auth = (onAuth: () => void) => {
   const auth = () => {
     api.authorize(login, password).then((response) => {
       localStorage.setItem(LOCAL_STORAGE_TOKEN, response.token || "");
-      localStorage.setItem(LOCAL_STORAGE_NAME, response.login || "");
+      localStorage.setItem(LOCAL_STORAGE_NAME, response.name || "");
+      localStorage.setItem(LOCAL_STORAGE_ROLE, response.role || "");
       onAuth();
     });
   };
@@ -27,12 +29,14 @@ export const Auth = (onAuth: () => void) => {
         <InputText
           placeholder="логин"
           onChange={(e) => setLogin(e.target.value)}
+          style={{ width: "100%" }}
         />
       </div>
       <div style={{ paddingBottom: "10px" }}>
         <Password
           placeholder="пароль"
           onChange={(e) => setPassword(e.target.value)}
+          style={{ width: "100%" }}
         />
       </div>
       <div style={{ justifyContent: "flex-end", display: "flex" }}>

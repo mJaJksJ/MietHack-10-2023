@@ -8,18 +8,18 @@ namespace MietHack_10_2023.Database.BaseTypes
         /// Администратор
         /// </summary>
         [EnumMember(Value = "Администратор")]
-        Admin,
+        Admin = 0,
 
         /// <summary>
         /// Руководитель
         /// </summary>
         [EnumMember(Value = "Руководитель")] 
-        Manager,
+        Manager = 1,
 
         /// <summary>
         /// Участник
         /// </summary>
         [EnumMember(Value = "Участник")]
-        Participant
+        Participant = 1
     }
 }
